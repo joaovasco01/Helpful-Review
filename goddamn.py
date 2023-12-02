@@ -42,7 +42,7 @@ def predict_helpfulness(comment):
     transformer_result = transformer_model(comment)
     transformer_pred = 1 if transformer_result[0]['label'] == 'POSITIVE' else 0
 
-    # Assuming you have accuracy values for each model
+    # Assuming you have accuracy values for each model (this weights were fine tuned)
     nb_weight = 0.85  # Replace with actual Naive Bayes accuracy
     lr_weight = 0.89  # Replace with actual Logistic Regression accuracy
     transformer_weight = 1.0  # Assign a weight to the transformer model
@@ -52,9 +52,6 @@ def predict_helpfulness(comment):
     
     return weighted_sum / total_weight
 
-
-
-# Existing code to predict helpfulness...
 
 # Test with a custom comment
 custom_comment = "This organic honey is not only delicious but also comes in eco-friendly packaging. I found it perfect for sweetening my tea and baking. The texture is smooth, and it has a rich, natural flavor that isn't too overpowering. Plus, it's great to know that it's sourced sustainably. Highly recommend for those who love natural sweeteners!"
